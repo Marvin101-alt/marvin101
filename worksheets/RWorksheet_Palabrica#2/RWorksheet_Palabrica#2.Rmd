@@ -1,0 +1,219 @@
+---
+title: "RWorksheet_Palabrica#2"
+author: "Marvin Luiz Palabrica"
+date: "2024-09-25"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+1. Create a vector using : operator
+
+ a. Sequence from -5 to 5. Write the R code and its output.
+Describe its output.
+```{r}
+vector <- -5:5
+vector
+```
+The vector are all numeric and include all values in a sequence starting from -5 to 5.
+
+```{r}
+```
+ b. x <- 1:7. What will be the value of x?
+```{r}
+x <- 1:7
+```
+
+2.* Create a vector using seq() function
+ a. seq(1, 3, by=0.2) # specify step size
+Write the R script and its output. Describe the output.
+```{r}
+vector <- seq(1,3, by = 0.2)
+vector
+```
+The output is a numeric vector that starts at 1 and ends at 3, with increments of 0.2. It contains 11 values: the starting value, intermediate values at each step of 0.2, and the ending value. 
+```{r}
+```
+A factory has a census of its workers. There are 50 workers in total. The following
+list shows their ages: 34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27,
+22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35,
+24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26,
+18.
+ a. Access 3rd element, what is the value?
+```{r}
+ages <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27,
+          22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 
+          43, 53, 41, 51, 35, 24, 33, 41, 53, 40, 18, 44, 38, 
+          41, 48, 27, 39, 19, 30, 61, 54, 58, 26, 18)
+ages[3]
+```
+ b. Access 2nd and 4th element, what are the values?
+```{r}
+ages [c(2,4)]
+```
+ c. Access all but the 4th and 12th element is not
+included. Write the R script and its output.
+```{r}
+ages [-c(4,12)]
+```
+4. *Create a vector x <- c("first"=3, "second"=0, "third"=9). Then named the
+vector, names(x).
+ a. Print the results. Then access x[c("first", "third")].
+Describe the output.
+```{r}
+x <- c("first"=3, "second"=0, "third"=9)
+x[c("first", "third")]
+```
+the access of x[c("first", "third")] retrieves the associated names, resulting in named vector showing "first" as 3 and "third" as 9.
+
+```{r}
+```
+5. Create a sequence x from -3:2.
+a. Modify 2nd element and change it to 0;
+x[2] <- 0
+x
+Describe the output.
+```{r}
+x[2] <- 0
+x
+```
+6. *The following data shows the diesel fuel purchased by Mr. Cruz.
+a. Create a data frame for month, price per liter (php)
+and purchase-quantity (liter). Write the R scripts and
+its output.
+```{r}
+months <- c("Jan", "Feb", "March", "Apr", "May", "June")
+Php<- c(52.50, 57.25, 60.00, 65.00, 74.25, 54.00)
+Liters<- c(25, 30, 40, 50, 10, 45)
+
+fuel <- data.frame(Months = months, Php = Php, Liters = Liters)
+fuel
+```
+b. What is the average fuel expenditure of Mr. Cruz from
+Jan to June? Note: Use ‘weighted.mean(liter,
+purchase)‘. Write the R scripts and its output.
+```{r}
+expenditure <- Php * Liters
+average_expenditure <- weighted.mean(expenditure, Liters)
+average_expenditure
+```
+7. R has actually lots of built-in datasets. For example, the rivers data “gives the lengths
+(in miles) of 141 “major” rivers in North America, as compiled by the US Geological
+Survey”.
+
+a. Type “rivers” in your R console.
+Create a vector data with 7
+elements, containing the number of elements (length)
+in rivers, their sum (sum), mean (mean),
+median(median), variance(var), standard deviation(sd),
+minimum (min) and maximum (max).
+
+  b. What are the results?
+  
+  c. Write the R scripts and its outputs.
+```{r}
+data <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers),
+sd(rivers), min(rivers), max(rivers))      
+data
+```
+The dataset contains 141 rivers, with a total combined length of 13428.5 miles. The average length of the rivers is approximately 95.06 miles, while the median length is 62 miles, indicating that half of the rivers are shorter than this value. The variance of the river lengths is 1374.17, which reflects the variability among the lengths. The standard deviation is around 37.01, representing the average deviation from the mean length. The shortest river in the dataset measures 1 mile, while the longest river reaches a length of 507 miles.
+```{r}
+
+```
+8. The table below gives the 25 most powerful celebrities and their annual pay as ranked
+by the editions of Forbes magazine and as listed on the Forbes.com website.
+
+The table below gives the 25 most powerful celebrities and their annual pay as ranked by the editions of
+Forbes magazine and as listed on the Forbes.com website. Ranking, Power Celebrity Name, Pay
+Tom Cruise 67, 2. Rolling Stones 90, 3. Oprah Winfrey 225, 4. U2 110 5 Tiger Woods 90, 6. Steven
+Spielberg 332, 7. Howard Stern 302, 8. 50 Cent 41, 9. Cast of the Sopranos 52, 10. Dan Brown 88, 11. Bruce
+Springsteen 55, 12. Donald Trump 44, 13. Muhammad Ali 55, 14. Pay Paul McCartney 40, 15. George Lucas
+233, 16. Elton John 34, 17. David Letterman 40, 18. Phil Mickelson 47, 19. J.K Rowling 75, 20. Bradd Pitt
+25, 21. Peter Jackson 39, 22. Dr. Phil McGraw 45, 23. Jay Lenon 32, 24. Celine Dion 40, 25. Kobe Bryant 31
+
+a. Create vectors according to the above table.
+Write the R scripts and its output.
+```{r}
+ranking <- 1:25
+celebrity_names <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2","Tiger Woods", "Steven Spielberg", "Howard Stern","50 Cent", "Cast of the Sopranos", "Dan Brown","Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman", "Phil Mickelson", "J.K. Rowling", 
+"Brad Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay Leno", "Celine Dion", "Kobe Bryant")
+pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 
+         55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 
+         39, 45, 32, 40, 31)
+Powerful_celebrities <- data.frame(Ranking = ranking, 
+                          Celebrity_Name = celebrity_names, 
+                          Pay = pay)
+Powerful_celebrities
+```
+b. Modify the power ranking and pay of J.K. Rowling.
+Change power ranking to 15 and pay to 90. Write the
+R scripts and its output.
+```{r}
+Powerful_celebrities[Powerful_celebrities$Celebrity_Name == "J.K. Rowling", "Ranking"] <- 15
+Powerful_celebrities[Powerful_celebrities$Celebrity_Name == "J.K. Rowling", "Pay"] <- 90
+
+Powerful_celebrities
+
+```
+c. Create an excel file from the table above and save it
+as csv file(PowerRanking). Import the csv file into
+the RStudio. What is the R script?
+```{r}
+write.csv(Powerful_celebrities, file = "PowerRanking.csv", row.names = FALSE )
+importedData <- read.csv ("PowerRanking.csv")
+print(importedData)
+```
+d. Access the rows 10 to 20 and save it as Ranks.RData.
+Write the R script and its output.
+```{r}
+ranksData <- Powerful_celebrities [10:20, ]
+save (ranksData, file = "Ranks.RData")
+print(ranksData)
+```
+e. Describe its output.
+```{r}
+```
+The output displays a subset of the celebrities data frame, specifically the rows from 10 to 20. Each row contains three columns: Ranking, Celebrity_Name, and Pay. This subset includes prominent figures such as Dan Brown, Bruce Springsteen, and J.K. Rowling, along with their corresponding annual pay in millions.
+```{r}
+
+```
+9. Download the Hotels-Vienna https://tinyurl.com/Hotels-Vienna
+a. Import the excel file into your RStudio.
+What is the R script?
+```{r}
+library(openxlsx)
+hotels_vienna<- read.xlsx("/cloud/project/hotels-vienna.xlsx")
+```
+b. How many dimensions does the dataset have? What is the R script? What is its output?
+```{r}
+dim(hotels_vienna)
+```
+10. Create a list of ten (10) vegetables you ate during your lifetime. If none, just list down.
+a. Write the R scripts and its output.
+```{r}
+vegetables <- c("Eggplant", "Cabbage", "Carrot", "Okra", "Sweet potato", "Onion", "Lettuce", "Tomato", "Garlic", "Bell pepper")
+vegetables
+```
+b. Add 2 additional vegetables after the last vegetables
+in the list. What is the R script and its output?
+```{r}
+vegetables <- c(vegetables, "Green beans", "[pumpkin")
+vegetables
+```
+c. Add 4 additional vegetables after index 5. How many
+datapoints does your vegetable list have? What is the
+R script and its output?
+```{r}
+vegetables <- append(vegetables, c("Wasabi", "Kale", "Sweetcorn", "Squash"), after = 5)
+length(vegetables)
+vegetables
+```
+d. Remove the vegetables in index 5, 10, and 15. How
+many vegetables were left? Write the codes and its
+output.
+```{r}
+vegetables <- vegetables[-c(5, 10, 15)] 
+length(vegetables) 
+vegetables
+```
