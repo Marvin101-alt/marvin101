@@ -99,9 +99,62 @@ library(readr)
 import_march <- read_csv("/cloud/project/import_march.csv")
 import_march
 ```
+6. Full Search
+
+Exhaustive search is a methodology for finding an answer by exploring all possible cases.
+When trying to find a desired number in a set of given numbers, the method of finding the corresponding number by checking all elements in the set one by one can be called an exhaustive search. Implement an exhaustive search function that meets the input/output conditions below.
+
+a. Create an R Program that allows the User to randomly select numbers from 1 to 50. Then display the chosen number. If the number is beyond the range of the selected choice, it will have to display a string "The number selected is beyond the range of 1 to 50". If number 20 is inputted by the User, it will have to display "TRUE", otherwise display the input number.
+```{r}
+ExhaustiveSearch <- function(selectedNumber) {
+  if (selectedNumber < 1 || selectedNumber > 50) {
+    return("The number selected is beyond the range of 1 to 50")
+  } else if (selectedNumber == 20) {
+    return("TRUE")
+  } else {
+    return(as.character(selectedNumber))
+  }
+}
+
+cat("Please select a number between 1 and 50:\n")
+userInput <- as.numeric(readLines(con = "stdin", n = 1))
+
+result <- ExhaustiveSearch(userInput)
+cat(result, "\n")
+
+```
+7. Change
+
+At ISATU University's traditional cafeteria, snacks can only be purchased with bills. A long-standing rule at the concession stand is that snacks must be purchased with as few coins as possible. There are three types of bills: 50 pesos, 100 pesos, 200 pesos, 500 pesos, 1000 pesos.
+
+a. Write a function that prints the minimum number of bills that must be paid, given the price of the snack.
+
+Input: Price of snack (a random number divisible by 50) Output: Minimum number of bills needed to purchase a snack.
+7. Change
+
+At ISATU University's traditional cafeteria, snacks can only be purchased with bills. A long-standing rule at the concession stand is that snacks must be purchased with as few coins as possible. There are three types of bills: 50 pesos, 100 pesos, 200 pesos, 500 pesos, 1000 pesos.
+
+a. Write a function that prints the minimum number of bills that must be paid, given the price of the snack.
+
+Input: Price of snack (a random number divisible by 50) Output: Minimum number of bills needed to purchase a snack.
+```{r}
+minimum_bills <- function(price) {
+  type_bills <- c(1000, 500, 200, 100, 50)
+  count <- 0
+  
+  for (bill in type_bills) {
+    if (price >= bill) {
+      count <- count + (price %/% bill)
+      price <- price %% bill
+    }
+  }
+  
+  print(paste("Minimum number of bills needed:", count))
+}
+
+minimum_bills(200)
 
 
 
-
-
+```
 
